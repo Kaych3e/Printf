@@ -31,7 +31,7 @@ int flags, int width, int precision, int size)
 
 		num_addrs = (unsigned long)addrs;
 
-	while (num_addrs > 0)
+		while (num_addrs > 0)
 		{
 			buffer[ind--] = map_to[num_addrs % 16];
 			num_addrs /= 16;
@@ -118,19 +118,20 @@ int flags, int width, int precision, int size)
 	str = va_arg(types, char *);
 
 	if (str == NULL)
-		{
-			UNUSED(precision);
-			str = ")Null(";
-		}
+	{
+		UNUSED(precision);
+		str = ")Null(";
+	}
 	for (i = 0; str[i]; i++)
 		;
-
 	for (i = i - 1; i >= 0; i--)
-		{
-			char z = str[i];
-			write(1, &z, 1);
-			count++;
-		}
+	{
+		char z = str[i];
+
+		write(1, &z, 1);
+
+		count++;
+	}
 	return (count);
 }
 /************************* PRINT A STRING IN ROT13 *************************/
